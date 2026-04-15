@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, CheckCircle } from "lucide-react";
+import { Send, CheckCircle, Loader2 } from "lucide-react";
+
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xpqkqwqn";
 
 const contactItems = [
   { icon: "✉️", label: "Email", value: "abhinnpokhriyal@gmail.com", href: "mailto:abhinnpokhriyal@gmail.com" },
@@ -14,7 +16,9 @@ const contactItems = [
 export default function ContactClient() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitError, setSubmitError] = useState("");
 
   const validate = () => {
     const e: Record<string, string> = {};
@@ -25,11 +29,54 @@ export default function ContactClient() {
     return e;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errs = validate();
-    if (Object.keys(errs).length) { setErrors(errs); return; }
-    setSubmitted(true);
+    if (Object.keys(errs).length) {
+      setErrors(errs);
+      return;
+    }
+
+    setSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          subject: form.subject || "(No subject)",
+          message: form.message,
+          _replyto: form.email,
+          _subject: `Portfolio Contact: ${form.subject || "New message from " + form.name}`,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        const data = await response.json();
+        setSubmitError(
+          data?.errors?.[0]?.message ||
+            "Something went wrong. Please try emailing directly at abhinnpokhriyal@gmail.com"
+        );
+      }
+    } catch {
+      const mailtoUrl = `mailto:abhinnpokhriyal@gmail.com?subject=${encodeURIComponent(
+        form.subject || "Portfolio Contact from " + form.name
+      )}&body=${encodeURIComponent(
+        `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
+      )}`;
+      window.location.href = mailtoUrl;
+      setSubmitted(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const inputStyle = (hasError?: boolean): React.CSSProperties => ({
@@ -106,7 +153,11 @@ export default function ContactClient() {
                 <h3 style={{ fontSize: "1.3rem", fontWeight: 700, color: "#f1f5f9", marginBottom: 8 }}>Message Sent!</h3>
                 <p style={{ color: "#64748b" }}>Thanks for reaching out. I&apos;ll get back to you within 24 hours.</p>
                 <button
-                  onClick={() => { setSubmitted(false); setForm({ name: "", email: "", subject: "", message: "" }); }}
+                  onClick={() => {
+                    setSubmitted(false);
+                    setForm({ name: "", email: "", subject: "", message: "" });
+                    setSubmitError("");
+                  }}
                   style={{
                     marginTop: 24, padding: "10px 24px",
                     background: "transparent",
@@ -164,24 +215,36 @@ export default function ContactClient() {
                   />
                   {errors.message && <p style={{ color: "#e63946", fontSize: "0.75rem", marginTop: 4 }}>{errors.message}</p>}
                 </div>
+
+                {submitError && (
+                  <p style={{ color: "#e63946", fontSize: "0.8rem", background: "rgba(230,57,70,0.08)", border: "1px solid rgba(230,57,70,0.2)", borderRadius: 8, padding: "10px 14px" }}>
+                    {submitError}
+                  </p>
+                )}
+
                 <button
                   type="submit"
+                  disabled={submitting}
                   style={{
                     display: "inline-flex", alignItems: "center", gap: 8,
                     padding: "12px 28px",
-                    background: "#e63946",
+                    background: submitting ? "rgba(230,57,70,0.5)" : "#e63946",
                     color: "#fff",
                     fontWeight: 700,
                     fontSize: "0.875rem",
                     borderRadius: 10,
                     border: "none",
-                    cursor: "pointer",
+                    cursor: submitting ? "not-allowed" : "pointer",
                     boxShadow: "0 0 20px rgba(230,57,70,0.3)",
                     transition: "transform 0.15s, background 0.2s",
                   }}
-                  className="hover:scale-105 active:scale-95 hover:bg-red-600"
+                  className={submitting ? "" : "hover:scale-105 active:scale-95 hover:bg-red-600"}
                 >
-                  <Send className="w-4 h-4" /> Send Message
+                  {submitting ? (
+                    <><Loader2 className="w-4 h-4 animate-spin" /> Sending...</>
+                  ) : (
+                    <><Send className="w-4 h-4" /> Send Message</>
+                  )}
                 </button>
               </form>
             )}
