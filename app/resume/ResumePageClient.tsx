@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Activity } from "react";
 import { motion } from "framer-motion";
 import { ResumeData } from "@/types/resume";
 import { resumeData as defaultData } from "@/lib/data";
@@ -115,7 +115,7 @@ export default function ResumePageClient() {
 
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
           <div>
-            {activeTab === "preview" && (
+            <Activity mode={activeTab === "preview" ? "visible" : "hidden"}>
               <motion.div key="preview-info" initial={{ y: 0 }} animate={{ y: 0 }}
                 style={{ background: "#12121f", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: 24 }}>
                 <p style={{ fontWeight: 700, color: "#f1f5f9", marginBottom: 8 }}>Resume Preview</p>
@@ -153,36 +153,36 @@ export default function ResumePageClient() {
                   </div>
                 )}
               </motion.div>
-            )}
+            </Activity>
 
-            {activeTab === "edit" && (
+            <Activity mode={activeTab === "edit" ? "visible" : "hidden"}>
               <motion.div key="edit" initial={{ y: 0 }} animate={{ y: 0 }}>
-                <div style={{ background: "#12121f", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: 20, marginBottom: 16 }}>
-                  <p style={{ fontWeight: 700, color: "#f1f5f9", marginBottom: 4 }}>Edit Resume</p>
-                  <p style={{ color: "#64748b", fontSize: "0.82rem" }}>
-                    Changes are saved automatically to your browser. Preview updates in real-time.
-                  </p>
-                </div>
-                <ResumeBuilder data={data} onChange={handleChange} />
-              </motion.div>
-            )}
+                            <div style={{ background: "#12121f", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: 20, marginBottom: 16 }}>
+                              <p style={{ fontWeight: 700, color: "#f1f5f9", marginBottom: 4 }}>Edit Resume</p>
+                              <p style={{ color: "#64748b", fontSize: "0.82rem" }}>
+                                Changes are saved automatically to your browser. Preview updates in real-time.
+                              </p>
+                            </div>
+                            <ResumeBuilder data={data} onChange={handleChange} />
+                          </motion.div>
+            </Activity>
 
-            {activeTab === "optimize" && (
+            <Activity mode={activeTab === "optimize" ? "visible" : "hidden"}>
               <motion.div key="optimize" initial={{ y: 0 }} animate={{ y: 0 }}
-                style={{ background: "#12121f", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: 24 }}>
-                <p style={{ fontWeight: 700, color: "#f1f5f9", marginBottom: 4 }}>ATS Optimizer</p>
-                <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: 20 }}>
-                  Paste a job description to get your match score, missing keywords, and tailored suggestions.
-                </p>
-                <JobDescriptionAnalyzer
-                  resumeData={data}
-                  onHighlight={(kws) => {
-                    setHighlightKeywords(kws);
-                    setActiveTab("preview");
-                  }}
-                />
-              </motion.div>
-            )}
+                            style={{ background: "#12121f", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: 24 }}>
+                            <p style={{ fontWeight: 700, color: "#f1f5f9", marginBottom: 4 }}>ATS Optimizer</p>
+                            <p style={{ color: "#64748b", fontSize: "0.85rem", marginBottom: 20 }}>
+                              Paste a job description to get your match score, missing keywords, and tailored suggestions.
+                            </p>
+                            <JobDescriptionAnalyzer
+                              resumeData={data}
+                              onHighlight={(kws) => {
+                                setHighlightKeywords(kws);
+                                setActiveTab("preview");
+                              }}
+                            />
+                          </motion.div>
+            </Activity>
           </div>
 
           <div style={{ overflow: "auto" }}>

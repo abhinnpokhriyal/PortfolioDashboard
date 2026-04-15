@@ -55,7 +55,7 @@ export default function ExperienceClient({ experience }: Props) {
           </div>
           <div style={{ flex: 1 }}>
             <p style={{ fontWeight: 700, color: "#f1f5f9", fontSize: "1rem" }}>Omnie Solutions (I) Pvt Ltd</p>
-            <p style={{ color: "#94a3b8", fontSize: "0.82rem", marginTop: 2 }}>📍 Noida, India · Apr 2022 – Present · 3+ years</p>
+            <p style={{ color: "#94a3b8", fontSize: "0.82rem", marginTop: 2 }}>📍 Noida, India · Apr 2022 – Present · 4+ years</p>
           </div>
           <div style={{
             background: "rgba(34,197,94,0.1)",
@@ -164,7 +164,7 @@ export default function ExperienceClient({ experience }: Props) {
           }}
         >
           Total tenure at Omnie Solutions:{" "}
-          <span style={{ color: "#e63946", fontWeight: 700 }}>3+ years (Apr 2022 – Present)</span>
+          <span style={{ color: "#e63946", fontWeight: 700 }}>4+ years (Apr 2022 – Present)</span>
         </motion.div>
       </div>
     </div>
