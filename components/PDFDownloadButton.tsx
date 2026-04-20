@@ -27,15 +27,12 @@ export default function PDFDownloadButton({
       }
 
       const canvas = await html2canvas(element, {
-        scale: 2,
+        scale: 1.5,
         useCORS: true,
         backgroundColor: "#ffffff",
         logging: false,
         windowWidth: element.scrollWidth,
         windowHeight: element.scrollHeight,
-        ignoreElements: (el) => {
-          return false;
-        },
         onclone: (clonedDoc) => {
           const allElements = clonedDoc.querySelectorAll('*');
           allElements.forEach((el) => {
@@ -55,7 +52,7 @@ export default function PDFDownloadButton({
         },
       });
 
-      const imgData = canvas.toDataURL("image/png");
+      const imgData = canvas.toDataURL("image/jpeg", 0.85);
 
       const A4_WIDTH_MM = 210;
       const A4_HEIGHT_MM = 297;
@@ -64,6 +61,7 @@ export default function PDFDownloadButton({
         orientation: "portrait",
         unit: "mm",
         format: "a4",
+        compress: true,
       });
 
       const imgWidthMM = A4_WIDTH_MM;
@@ -76,11 +74,13 @@ export default function PDFDownloadButton({
 
         pdf.addImage(
           imgData,
-          "PNG",
+          "JPEG",
           0,
           -yOffset,
           imgWidthMM,
-          imgHeightMM
+          imgHeightMM,
+          undefined,
+          "FAST"
         );
 
         yOffset += A4_HEIGHT_MM;

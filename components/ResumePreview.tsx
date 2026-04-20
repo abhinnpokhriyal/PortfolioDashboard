@@ -30,40 +30,36 @@ export default function ResumePreview({ data, highlightKeywords = [] }: Props) {
         fontFamily: "'Arial', 'Helvetica', sans-serif",
         backgroundColor: "#ffffff",
         color: "#000000",
-        padding: "10mm 12mm",
+        padding: "5mm 10mm",
         maxWidth: "210mm",
         minHeight: "297mm",
         margin: "0 auto",
-        fontSize: "10pt",
-        lineHeight: "1.25"
+        fontSize: "8.5pt",
+        lineHeight: "1.1"
       }}
     >
-      {/* Header - ATS Optimized: Simple text, no icons */}
-      <div style={{ textAlign: "center", marginBottom: "6px", paddingBottom: "6px", borderBottom: "1.5pt solid #000" }}>
-        <h1 style={{ fontSize: "16pt", fontWeight: "bold", margin: "0 0 3px 0", letterSpacing: "0.5pt", textTransform: "uppercase" }}>
+      <div style={{ textAlign: "center", marginBottom: "4px", paddingBottom: "3px", borderBottom: "1.5pt solid #000" }}>
+        <h1 style={{ fontSize: "15pt", fontWeight: "bold", margin: "0 0 1px 0", letterSpacing: "0.5pt", textTransform: "uppercase" }}>
           {data.name}
         </h1>
-        <div style={{ fontSize: "9pt", color: "#000", marginBottom: "3px" }}>
-          {data.email} | {data.phone} | {data.location}
+        <div style={{ fontSize: "8pt", color: "#0066cc", marginBottom: "1px", fontWeight: "600" }}>
+          {data.title}
         </div>
-        <div style={{ fontSize: "9pt", color: "#000" }}>
-          {data.linkedin.replace("https://", "")} | {data.github.replace("https://", "")}
-          {data.website && ` | ${data.website.replace("https://", "")}`}
+        <div style={{ fontSize: "7.5pt", color: "#000" }}>
+          {data.phone} | {data.email} | {data.linkedin.replace("https://", "")} | {data.location}
         </div>
       </div>
 
-      {/* Professional Summary */}
-      <ATSSection title="PROFESSIONAL SUMMARY">
-        <p style={{ margin: 0, fontSize: "9.5pt", color: "#000" }}>
+      <Section title="PROFESSIONAL SUMMARY">
+        <p style={{ margin: 0, fontSize: "8pt", color: "#000", lineHeight: "1.15" }}>
           {highlight(data.summary, highlightKeywords)}
         </p>
-      </ATSSection>
+      </Section>
 
-      {/* Technical Skills - ATS Friendly: Keywords clearly visible */}
-      <ATSSection title="TECHNICAL SKILLS">
-        <div style={{ fontSize: "9.5pt" }}>
+      <Section title="TECHNICAL SKILLS">
+        <div style={{ fontSize: "8pt", lineHeight: "1.15" }}>
           {data.skills.map((skill, idx) => (
-            <div key={skill.category} style={{ marginBottom: idx < data.skills.length - 1 ? "2px" : "0" }}>
+            <div key={skill.category} style={{ marginBottom: "0.5px" }}>
               <span style={{ fontWeight: "bold", color: "#000" }}>
                 {skill.category}:
               </span>
@@ -74,122 +70,113 @@ export default function ResumePreview({ data, highlightKeywords = [] }: Props) {
             </div>
           ))}
         </div>
-      </ATSSection>
+      </Section>
 
-      {/* Work Experience - Standard ATS Format */}
-      <ATSSection title="PROFESSIONAL EXPERIENCE">
+      <Section title="PROFESSIONAL EXPERIENCE">
         {data.experience.map((exp, idx) => (
-          <div key={exp.id} style={{ marginBottom: idx < data.experience.length - 1 ? "7px" : "0" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-              <div>
-                <span style={{ fontWeight: "bold", fontSize: "10pt", color: "#000" }}>
-                  {exp.title}
-                </span>
-                {" | "}
-                <span style={{ fontSize: "9.5pt", color: "#000" }}>
-                  {exp.company}, {exp.location}
-                </span>
-              </div>
-              <span style={{ fontSize: "9pt", color: "#000", whiteSpace: "nowrap", marginLeft: "8px" }}>
-                {exp.startDate} – {exp.current ? "Present" : exp.endDate}
+          <div key={exp.id} style={{ marginBottom: idx < data.experience.length - 1 ? "4px" : "0" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "0.5px" }}>
+              <span style={{ fontWeight: "bold", fontSize: "8.5pt", color: "#000" }}>
+                {exp.title}
+              </span>
+              <span style={{ fontSize: "7.5pt", color: "#000", whiteSpace: "nowrap", marginLeft: "8px" }}>
+                {exp.startDate} - {exp.current ? "Present" : exp.endDate}
               </span>
             </div>
-            <ul style={{ margin: "2px 0 0 18px", padding: 0, fontSize: "9.5pt", listStyleType: "disc" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "8pt", color: "#000", fontWeight: "600", marginBottom: "1.5px" }}>
+              <span>{exp.company}</span>
+              <span>{exp.location}</span>
+            </div>
+            <ul style={{ margin: "0 0 1.5px 12px", padding: 0, fontSize: "7.5pt", listStyleType: "disc" }}>
               {exp.bullets.map((b, i) => (
-                <li key={i} style={{ marginBottom: "1px", color: "#000", lineHeight: "1.3" }}>
+                <li key={i} style={{ marginBottom: "0.5px", color: "#000", lineHeight: "1.1", paddingLeft: "1px" }}>
                   {highlight(b, highlightKeywords)}
                 </li>
               ))}
             </ul>
+            <div style={{ fontSize: "7.5pt", color: "#000", fontStyle: "italic", marginTop: "1px" }}>
+              <span style={{ fontWeight: "600", fontStyle: "normal" }}>Technologies Used:</span> {exp.techStack?.join(", ") || "N/A"}
+            </div>
           </div>
         ))}
-      </ATSSection>
+      </Section>
 
-      {/* Projects */}
-      <ATSSection title="PROJECTS">
+      <Section title="PROJECTS">
         {data.projects.map((proj, idx) => (
-          <div key={proj.id} style={{ marginBottom: idx < data.projects.length - 1 ? "5px" : "0" }}>
+          <div key={proj.id} style={{ marginBottom: idx < data.projects.length - 1 ? "3px" : "0" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-              <span style={{ fontWeight: "bold", fontSize: "10pt", color: "#000" }}>
+              <span style={{ fontWeight: "bold", fontSize: "8.5pt", color: "#000" }}>
                 {proj.name}
               </span>
-              {proj.liveUrl && (
-                <span style={{ fontSize: "8.5pt", color: "#000" }}>
-                  {proj.liveUrl.replace("https://", "")}
+              {(proj.startDate || proj.endDate) && (
+                <span style={{ fontSize: "7.5pt", color: "#000", whiteSpace: "nowrap" }}>
+                  {proj.startDate || "Recent"} - {proj.endDate || "Present"}
                 </span>
               )}
             </div>
-            <p style={{ margin: "1px 0", fontSize: "9.5pt", color: "#000", lineHeight: "1.3" }}>
+            <p style={{ margin: "0.5px 0", fontSize: "8pt", color: "#000", lineHeight: "1.1" }}>
               {highlight(proj.description, highlightKeywords)}
             </p>
-            <p style={{ margin: "1px 0 0 0", fontSize: "9pt", color: "#000" }}>
-              <span style={{ fontWeight: "600" }}>Technologies:</span>{" "}
-              {highlight(proj.techStack.join(", "), highlightKeywords)}
-            </p>
+            {proj.bullets && proj.bullets.length > 0 && (
+              <ul style={{ margin: "0.5px 0 0 12px", padding: 0, fontSize: "7.5pt", listStyleType: "disc" }}>
+                {proj.bullets.map((b: string, i: number) => (
+                  <li key={i} style={{ marginBottom: "0.5px", color: "#000", lineHeight: "1.1" }}>
+                    {highlight(b, highlightKeywords)}
+                  </li>
+                ))}
+              </ul>
+            )}
+            <div style={{ fontSize: "7.5pt", color: "#000", fontStyle: "italic", marginTop: "0.5px" }}>
+              <span style={{ fontWeight: "600", fontStyle: "normal" }}>Technologies Used:</span> {highlight(proj.techStack.join(", "), highlightKeywords)}
+            </div>
           </div>
         ))}
-      </ATSSection>
+      </Section>
 
-      {/* Education */}
-      <ATSSection title="EDUCATION">
+      <Section title="EDUCATION">
         {data.education.map((edu, idx) => (
-          <div key={edu.id} style={{ marginBottom: idx < data.education.length - 1 ? "3px" : "0" }}>
+          <div key={edu.id} style={{ marginBottom: idx < data.education.length - 1 ? "2px" : "0" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
               <div>
-                <span style={{ fontWeight: "bold", fontSize: "10pt", color: "#000" }}>
+                <span style={{ fontWeight: "bold", fontSize: "8.5pt", color: "#000" }}>
                   {edu.degree}
                 </span>
                 {" | "}
-                <span style={{ fontSize: "9.5pt", color: "#000" }}>
+                <span style={{ fontSize: "8pt", color: "#000" }}>
                   {edu.institution}
                 </span>
               </div>
-              <span style={{ fontSize: "9pt", color: "#000", whiteSpace: "nowrap", marginLeft: "8px" }}>
-                {edu.startYear} – {edu.endYear}
+              <span style={{ fontSize: "7.5pt", color: "#000", whiteSpace: "nowrap", marginLeft: "8px" }}>
+                {edu.startYear} - {edu.endYear}
               </span>
             </div>
             {edu.gpa && (
-              <p style={{ margin: "1px 0 0 0", fontSize: "9pt", color: "#000" }}>
+              <p style={{ margin: "0.5px 0 0 0", fontSize: "7.5pt", color: "#000" }}>
                 GPA: {edu.gpa}
               </p>
             )}
           </div>
         ))}
-      </ATSSection>
-
-      {/* Achievements & Awards */}
-      <ATSSection title="ACHIEVEMENTS & AWARDS">
-        <div style={{ fontSize: "9.5pt" }}>
-          {data.achievements.map((ach, idx) => (
-            <div key={ach.id} style={{ marginBottom: idx < data.achievements.length - 1 ? "2px" : "0" }}>
-              <span style={{ fontWeight: "600", color: "#000" }}>
-                {ach.title} ({ach.year}):
-              </span>
-              {" "}
-              <span style={{ color: "#000" }}>{ach.description}</span>
-            </div>
-          ))}
-        </div>
-      </ATSSection>
+      </Section>
     </div>
   );
 }
 
-// ATS-Optimized Section Component
-function ATSSection({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div style={{ marginBottom: "7px" }}>
+    <div style={{ marginBottom: "3px" }}>
       <h2 
         style={{ 
-          fontSize: "11pt",
+          fontSize: "9.5pt",
           fontWeight: "bold",
           textTransform: "uppercase",
           letterSpacing: "0.5pt",
-          color: "#000",
-          borderBottom: "1pt solid #000",
-          paddingBottom: "2px",
-          marginBottom: "4px",
-          margin: "0 0 4px 0"
+          color: "#0066cc",
+          backgroundColor: "#f0f0f0",
+          padding: "1px 0",
+          marginBottom: "2px",
+          margin: "0 0 2px 0",
+          textAlign: "center"
         }}
       >
         {title}
