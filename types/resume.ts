@@ -29,6 +29,9 @@ export interface Project {
   liveUrl?: string;
   githubUrl?: string;
   highlights: string[];
+  startDate?: string;
+  endDate?: string;
+  bullets?: string[];
 }
 
 export interface Skill {
