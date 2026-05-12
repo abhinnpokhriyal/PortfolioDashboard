@@ -23,9 +23,6 @@ export default function Footer() {
           {"</>"}
         </Link>
         <p style={{ fontSize: "0.8rem", color: "#475569" }}>
-          Built with React · Next.js · TypeScript · Tailwind CSS
-        </p>
-        <p style={{ fontSize: "0.8rem", color: "#475569" }}>
           © {new Date().getFullYear()} Abhinn Pokhriyal
         </p>
       </div>

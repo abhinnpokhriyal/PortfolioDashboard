@@ -2,7 +2,7 @@ import { ResumeData } from "@/types/resume";
 
 export const resumeData: ResumeData = {
   name: "Abhinn Pokhriyal",
-  title: "Frontend Engineer",
+  title: "Software Developer",
   email: "abhinnpokhriyal@gmail.com",
   phone: "+91 9599754526",
   location: "Delhi, India",
@@ -10,16 +10,16 @@ export const resumeData: ResumeData = {
   github: "https://github.com/abhinnpokhriyal",
   website: "",
   summary:
-    "I am a Frontend Engineer with over 4 years of experience focusing on scalable web applications in the healthcare and pharmaceutical sectors. I take pride in optimizing CI test execution times by 65% and achieving over 80% unit test coverage rapidly. With proficiency in React.js, TypeScript, and Adobe Experience Manager, I prioritize performance and robust delivery pipelines to drive project success",
+    "Software Developer (4+ yrs) driving scalable healthcare platforms, delivering 65% CI performance gains, 80%+ test coverage, and large-scale UI migrations (MUI, AEM) at enterprise scale.",
 
   education: [
     {
       id: "edu1",
-      degree: "Bachelor of Technology (B.Tech)",
-      institution: "KCC Institute of Technology and Management",
+      degree: "B. Tech, Computer Science",
+      institution: "KCC Institute of Technology",
       location: "Greater Noida, Uttar Pradesh",
-      startYear: "08/2018",
-      endYear: "06/2022",
+      startYear: "2018",
+      endYear: "2022",
       highlights: [],
     },
   ],
@@ -27,120 +27,128 @@ export const resumeData: ResumeData = {
   experience: [
     {
       id: "exp1",
-      title: "Software Developer / Frontend Engineer",
+      title: "Frontend Engineer",
       company: "Optum (via Omnie Solutions)",
       location: "Noida",
-      startDate: "11/2023",
-      endDate: "",
+      startDate: "2022",
+      endDate: "Present",
       current: true,
       bullets: [
-        "Directed JFrog artifact repository migration within 20 days, improving CI/CD reliability and deployment consistency across environments",
-        "Reduced CI test execution time from 1500+ seconds to under 500 seconds (65% improvement) by streamlining Jest configuration and enabling parallel execution",
-        "Achieved 80%+ unit test coverage within 10 days, ensuring SonarQube quality gate compliance and improving code reliability",
-        "Enhanced application performance by migrating static assets to AEM, resulting in reduced bundle size and faster load times",
-        "Developed a configurable notification banner system using AEM, enabling non-technical stakeholders to manage content independently",
-        "Streamlined deployment workflows across development, staging, and production environments, reducing release turnaround time",
-        "Resolved high-severity production issues, ensuring system stability and availability for enterprise applications",
-        "Utilized AI-powered tools to improve development speed, code quality, and overall productivity",
+        "Improved CI execution by 65% (1500s→<500s), accelerating release cycles across teams",
+        "Achieved 80%+ test coverage in 10 days, reducing production defects and improving code reliability",
+        "Directed MUI v4→v5 migration across multiple repos with zero downtime",
+        "Drove CMS→AEM migration, optimizing asset delivery and reducing bundle size",
+        "Built dynamic AEM-driven UI systems enabling non-technical stakeholders to manage content",
+        "Optimized frontend performance using lazy loading & code splitting",
+        "Resolved critical production issues under SLA ensuring system stability",
       ],
-      techStack: ["React.js", "TypeScript", "Redux", "AEM", "Jest", "JFrog", "SonarQube", "CI/CD"],
-    },
-    {
-      id: "exp2",
-      title: "Associate Software Developer",
-      company: "Optum (via Omnie Solutions)",
-      location: "Noida",
-      startDate: "11/2022",
-      endDate: "11/2023",
-      current: false,
-      bullets: [
-        "Managed migration from Material UI v4 to v5 across two enterprise applications and shared component libraries with zero production downtime",
-        "Improved scalability and maintainability by refactoring reusable component libraries and standardizing design patterns",
-        "Contributed to CMS to AEM migration, enhancing content delivery via REST APIs and improving asset performance",
-        "Enhanced frontend performance through code splitting, lazy loading, and efficient asset handling",
-        "Coordinated deployment cycles across multiple environments, ensuring stable and consistent releases",
-        "Collaborated with cross-functional teams including backend, QA, and DevOps to deliver high-quality features",
-      ],
-      techStack: ["React.js", "TypeScript", "Material UI", "AEM", "Redux", "Jest", "REST APIs"],
-    },
-    {
-      id: "exp3",
-      title: "Trainee Software Developer",
-      company: "Optum (via Omnie Solutions)",
-      location: "Noida",
-      startDate: "04/2022",
-      endDate: "11/2022",
-      current: false,
-      bullets: [
-        "Introduced modular architecture by extracting reusable features into shared React packages, improving code reuse across projects",
-        "Built responsive and accessible UI components using React.js and TypeScript for enterprise applications",
-        "Integrated REST APIs and debugged performance issues to enhance user experience",
-        "Supported code reviews, testing, and documentation, contributing to improved development practices",
-      ],
-      techStack: ["React.js", "JavaScript", "TypeScript", "HTML5", "CSS3", "REST APIs"],
+      techStack: ["React.js", "TypeScript", "Next.js", "Redux", "AEM", "Jest", "Material UI", "CI/CD"],
     },
   ],
 
   projects: [
     {
       id: "proj1",
-      name: "Portfolio Website (React.js & Next.js)",
+      name: "Specialty Provider Portal",
       description:
-        "Developed a production-ready portfolio showcasing frontend expertise, including an ATS-optimized resume generator and performance-focused UI",
-      techStack: ["React.js", "Next.js", "TypeScript", "Tailwind CSS"],
+        "Guided frontend enhancements and performance optimizations for provider workflows. Improved test efficiency and reduced execution time significantly through Jest optimizations. Contributed to AEM migration improving content scalability and maintainability.",
+      startDate: "2024",
+      endDate: "2026",
+      techStack: ["React.js", "TypeScript", "AEM", "Jest", "Material UI"],
       highlights: [],
-      liveUrl: "Portfolio Website",
+      liveUrl: "Specialty Provider Portal",
     },
     {
       id: "proj2",
-      name: "Enterprise Pharma Portal – MUI Migration",
+      name: "Specialty Patient Portal",
       description:
-        "Executed migration from Material UI v4 to v5, improving UI consistency, maintainability, and developer efficiency",
-      techStack: ["React.js", "TypeScript", "Material UI v5", "Redux"],
+        "Migrated large-scale application from MUI v4 to v5 across multiple shared repositories. Built reusable component libraries improving scalability and development speed. Enhanced accessibility, performance, and user experience for patient-facing platform.",
+      startDate: "2022",
+      endDate: "2024",
+      techStack: ["React.js", "TypeScript", "Material UI", "Redux"],
       highlights: [],
-      liveUrl: "Enterprise Pharma Portal Migration",
+      liveUrl: "Specialty Patient Portal",
     },
     {
       id: "proj3",
-      name: "AEM Migration & CI/CD Optimization",
+      name: "Portfolio Dashboard",
       description:
-        "Delivered CMS to AEM migration and improved CI/CD pipeline efficiency, reducing execution time by 65%",
-      techStack: ["AEM", "React.js", "TypeScript", "JFrog", "Jest", "CI/CD"],
+        "Built from scratch using React & Next.js with AI-assisted development. Implemented modern UI patterns and performance optimizations. Delivered production-ready portfolio with ATS-focused features and real-world use cases.",
+      startDate: "2026",
+      endDate: "Present",
+      techStack: ["React.js", "Next.js", "TypeScript", "Tailwind CSS"],
       highlights: [],
-      liveUrl: "AEM Migration & Optimization",
+      liveUrl: "Portfolio Dashboard",
     },
   ],
 
   skills: [
     {
-      category: "Frontend",
-      items: ["React", "TypeScript", "Next.js", "Redux", "AEM", "Gmail", "GitHub"],
+      category: "Languages",
+      items: ["JavaScript (ES6+)", "TypeScript"],
     },
     {
-      category: "Core Technologies",
-      items: ["Adobe Experience Manager", "JavaScript ES6+", "HTML", "Redux Toolkit", "React Router"],
+      category: "Frontend Development",
+      items: ["React.js", "Next.js", "Material UI"],
     },
     {
-      category: "Styling & UI",
-      items: ["Material UI", "Tailwind", "SCSS"],
+      category: "State Management",
+      items: ["Redux"],
     },
     {
-      category: "Testing & Tools",
-      items: ["JFrog", "Sonar", "Jest", "Unit Testing", "Integration Testing", "Git", "Webpack"],
+      category: "Web Technologies",
+      items: ["HTML", "CSS"],
     },
     {
-      category: "Other",
-      items: ["REST", "Modular", "ATS"],
+      category: "Monitoring & Analytics",
+      items: ["Datadog", "Adobe Experience Manager (AEM)", "Dynatrace", "SonarQube"],
+    },
+    {
+      category: "Version Control",
+      items: ["Git", "GitHub", "GitHub Desktop"],
+    },
+    {
+      category: "CI/CD & DevOps",
+      items: ["Jenkins", "GitHub Actions"],
+    },
+    {
+      category: "Testing",
+      items: ["Jest", "Unit Testing", "Integration Testing"],
+    },
+    {
+      category: "API & Integration",
+      items: ["Rest APIs", "API Integration"],
     },
   ],
 
   achievements: [
     {
       id: "ach1",
-      title: "Performance Improvements and CI/CD Efficiency",
+      title: "CI Performance Optimization",
       description:
-        "Demonstrated success in improving CI test execution time by 65%, achieving 80%+ unit test coverage within 10 days, and executing large-scale frontend and platform migrations",
+        "Improved CI execution by 65%, reducing pipeline execution time from 1500 seconds to under 500 seconds, accelerating release cycles across teams",
       year: "2024",
+    },
+    {
+      id: "ach2",
+      title: "Test Coverage Excellence",
+      description:
+        "Achieved 80%+ test coverage within 10 days through Jest optimization and improved testing practices, reducing production defects and improving application stability",
+      year: "2024",
+    },
+    {
+      id: "ach3",
+      title: "Large-Scale UI Migration",
+      description:
+        "Successfully led Material UI v4 to v5 migration across multiple repositories with zero downtime, improving UI consistency and maintainability",
+      year: "2023",
+    },
+    {
+      id: "ach4",
+      title: "CMS to AEM Migration",
+      description:
+        "Contributed to CMS to Adobe Experience Manager migration, improving frontend maintainability and content scalability",
+      year: "2023",
     },
   ],
 };

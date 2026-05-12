@@ -57,17 +57,6 @@ export default function ExperienceClient({ experience }: Props) {
             <p style={{ fontWeight: 700, color: "#f1f5f9", fontSize: "1rem" }}>Omnie Solutions (I) Pvt Ltd</p>
             <p style={{ color: "#94a3b8", fontSize: "0.82rem", marginTop: 2 }}>📍 Noida, India · Apr 2022 – Present · 4+ years</p>
           </div>
-          <div style={{
-            background: "rgba(34,197,94,0.1)",
-            border: "1px solid rgba(34,197,94,0.3)",
-            borderRadius: 999,
-            padding: "4px 14px",
-            fontSize: "0.78rem",
-            color: "#86efac",
-            fontWeight: 600,
-          }}>
-            📈 3 Promotions
-          </div>
         </motion.div>
 
         <div style={{ position: "relative" }}>
