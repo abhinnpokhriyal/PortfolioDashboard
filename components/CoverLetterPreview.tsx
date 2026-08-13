@@ -54,7 +54,7 @@ export default function CoverLetterPreview({ content }: Props) {
 
       <div style={{ marginBottom: "12px" }}>
         <p style={{ margin: "0 0 12px 0", fontSize: "11pt", color: "#000", lineHeight: "1.6" }}>
-          Currently, I work as a Frontend Engineer at Optum through Omnie Solutions, where I contribute to large-scale applications focused on scalability, performance, accessibility, and reliability. During my tenure, I improved CI execution performance by 65%, reducing pipeline execution time from 1500 seconds to under 500 seconds and accelerating release cycles across teams. I also achieved 80%+ test coverage within a short timeframe through Jest optimization and improved testing practices, helping reduce production defects and improve application stability.
+          Currently, I work as a Frontend Engineer at Optum through Omnie Solutions India Private Limited, where I contribute to large-scale applications focused on scalability, performance, accessibility, and reliability. During my tenure, I improved CI execution performance by 65%, reducing pipeline execution time from 1500 seconds to under 500 seconds and accelerating release cycles across teams. I also achieved 80%+ test coverage within a short timeframe through Jest optimization and improved testing practices, helping reduce production defects and improve application stability.
         </p>
       </div>
 

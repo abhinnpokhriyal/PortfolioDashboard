@@ -2,21 +2,21 @@ import { ResumeData } from "@/types/resume";
 
 export const resumeData: ResumeData = {
   name: "Abhinn Pokhriyal",
-  title: "Software Developer",
+  title: "Software Developer | Frontend Engineer",
   email: "abhinnpokhriyal@gmail.com",
   phone: "+91 9599754526",
   location: "Delhi, India",
   linkedin: "https://linkedin.com/in/abhinn-pokhriyal-a26279194",
   github: "https://github.com/abhinnpokhriyal",
-  website: "",
+  website: "https://portfolio-dashboard-six-zeta.vercel.app",
   summary:
-    "Software Developer (4+ yrs) driving scalable healthcare platforms, delivering 65% CI performance gains, 80%+ test coverage, and large-scale UI migrations (MUI, AEM) at enterprise scale.",
+    "Frontend Engineer with 4+ years building scalable, accessible enterprise healthcare web applications. Expert in React.js, Next.js, TypeScript, Redux Toolkit, and RESTful API integration within Agile/Scrum teams across 96 sprints and 48 production releases. Delivers pixel-accurate Figma-to-code conversions at 10+ components per sprint with end-to-end ownership from design handoff to production.",
 
   education: [
     {
       id: "edu1",
-      degree: "B. Tech, Computer Science",
-      institution: "KCC Institute of Technology",
+      degree: "B.Tech, Computer Science",
+      institution: "KCC Institute of Technology and Management",
       location: "Greater Noida, Uttar Pradesh",
       startYear: "2018",
       endYear: "2022",
@@ -27,26 +27,42 @@ export const resumeData: ResumeData = {
   experience: [
     {
       id: "exp1",
-      title: "Frontend Engineer",
-      company: "Optum (via Omnie Solutions)",
-      location: "Noida",
-      startDate: "2022",
+      title: "Software Developer – Frontend Engineer",
+      company: "Optum (via Omnie Solutions India Private Limited)",
+      location: "Noida, India",
+      startDate: "Apr 2022",
       endDate: "Present",
       current: true,
       bullets: [
-        "Improved CI execution by 65% (1500s→<500s), accelerating release cycles across teams",
-        "Achieved 80%+ test coverage in 10 days, reducing production defects and improving code reliability",
-        "Directed MUI v4→v5 migration across multiple repos with zero downtime",
-        "Drove CMS→AEM migration, optimizing asset delivery and reducing bundle size",
-        "Built dynamic AEM-driven UI systems enabling non-technical stakeholders to manage content",
-        "Optimized frontend performance using lazy loading & code splitting",
-        "Resolved critical production issues under SLA ensuring system stability",
+        "Promoted through three roles – Trainee Engineer → Associate Software Engineer → Software Developer – reflecting consistent performance growth",
+        "Engineered scalable enterprise healthcare portals (Specialty Patient & Provider) using React.js, TypeScript, Redux Toolkit, Material UI, and AEM with end-to-end ownership",
+        "Drove full Scrum lifecycle across 96 sprints and 48 production releases spanning both portals – daily standups, sprint planning, demos, and retrospectives",
+        "Converted Figma designs into 10+ production-ready React components per sprint via Figma-to-code workflows, ensuring pixel-accurate, design-consistent UI delivery",
+        "Led Material UI v4→v5 and CMS→AEM migrations with zero downtime, delivering both in production without user disruption",
+        "Optimized Jest and React Testing Library CI/CD configurations, cutting test execution time by 65% (1,500s→<500s)",
+        "Achieved 80%+ unit test coverage and full SonarQube Quality Gate compliance",
+        "Integrated GitHub Copilot for automated test generation – cutting time by 70% and generating 400+ test cases in a single sprint",
       ],
-      techStack: ["React.js", "TypeScript", "Next.js", "Redux", "AEM", "Jest", "Material UI", "CI/CD"],
+      techStack: ["React.js", "Next.js", "TypeScript", "Redux Toolkit", "Material UI", "AEM", "Jest", "Figma", "GitHub Copilot"],
     },
   ],
 
   projects: [
+    {
+      id: "proj2",
+      name: "Specialty Patient Portal",
+      description:
+        "Migrated large-scale application from Material UI v4 to v5 across multiple shared repositories. Built reusable component libraries improving scalability and development speed. Enhanced accessibility, performance, and user experience for patient-facing platform.",
+      startDate: "2022",
+      endDate: "2024",
+      techStack: ["React.js", "TypeScript", "Material UI", "Redux Toolkit"],
+      highlights: [
+        "Zero-downtime MUI v4→v5 migration across shared repos",
+        "Built scalable component libraries",
+        "Enhanced WCAG accessibility compliance",
+      ],
+      liveUrl: "",
+    },
     {
       id: "proj1",
       name: "Specialty Provider Portal",
@@ -55,19 +71,12 @@ export const resumeData: ResumeData = {
       startDate: "2024",
       endDate: "2026",
       techStack: ["React.js", "TypeScript", "AEM", "Jest", "Material UI"],
-      highlights: [],
-      liveUrl: "Specialty Provider Portal",
-    },
-    {
-      id: "proj2",
-      name: "Specialty Patient Portal",
-      description:
-        "Migrated large-scale application from MUI v4 to v5 across multiple shared repositories. Built reusable component libraries improving scalability and development speed. Enhanced accessibility, performance, and user experience for patient-facing platform.",
-      startDate: "2022",
-      endDate: "2024",
-      techStack: ["React.js", "TypeScript", "Material UI", "Redux"],
-      highlights: [],
-      liveUrl: "Specialty Patient Portal",
+      highlights: [
+        "65% CI/CD speed improvement (1,500s→<500s)",
+        "CMS to AEM migration with zero downtime",
+        "80%+ unit test coverage via TDD",
+      ],
+      liveUrl: "",
     },
     {
       id: "proj3",
@@ -76,79 +85,102 @@ export const resumeData: ResumeData = {
         "Built from scratch using React & Next.js with AI-assisted development. Implemented modern UI patterns and performance optimizations. Delivered production-ready portfolio with ATS-focused features and real-world use cases.",
       startDate: "2026",
       endDate: "Present",
-      techStack: ["React.js", "Next.js", "TypeScript", "Tailwind CSS"],
-      highlights: [],
-      liveUrl: "Portfolio Dashboard",
+      techStack: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+      highlights: [
+        "Figma UI designs translated to responsive React components",
+        "AI-assisted iteration with GitHub Copilot",
+        "Deployed on Vercel with lazy loading",
+      ],
+      liveUrl: "https://portfolio-dashboard-six-zeta.vercel.app",
+      githubUrl: "https://github.com/abhinnpokhriyal",
     },
   ],
 
   skills: [
     {
-      category: "Languages",
-      items: ["JavaScript (ES6+)", "TypeScript"],
-    },
-    {
-      category: "Frontend Development",
-      items: ["React.js", "Next.js", "Material UI"],
+      category: "Frontend Core",
+      items: ["React.js", "Next.js", "TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3", "SCSS", "Tailwind CSS", "React Hooks"],
     },
     {
       category: "State Management",
-      items: ["Redux"],
+      items: ["Redux", "Redux Toolkit", "Context API"],
     },
     {
-      category: "Web Technologies",
-      items: ["HTML", "CSS"],
+      category: "Agile & Design Collaboration",
+      items: ["Agile/Scrum", "Sprint Planning", "Story-Point Estimation", "Rally", "Figma", "Figma Dev Mode", "Figma-to-Code"],
     },
     {
-      category: "Monitoring & Analytics",
-      items: ["Datadog", "Adobe Experience Manager (AEM)", "Dynatrace", "SonarQube"],
+      category: "UI / Design Systems",
+      items: ["Material UI (v4 & v5)", "Responsive Web Design", "Semantic HTML", "WCAG Accessibility"],
     },
     {
-      category: "Version Control",
-      items: ["Git", "GitHub", "GitHub Desktop"],
+      category: "Testing & Quality",
+      items: ["Jest", "React Testing Library (RTL)", "Unit Testing", "Integration Testing", "SonarQube", "TDD", "Code Coverage"],
+    },
+    {
+      category: "APIs & Data Flow",
+      items: ["RESTful APIs", "API Error Handling", "Mock Data Workflows", "Frontend Data Architecture"],
+    },
+    {
+      category: "Build & Performance",
+      items: ["Webpack", "Code Splitting", "Lazy Loading", "Core Web Vitals", "Vercel", "Bundle Optimization"],
     },
     {
       category: "CI/CD & DevOps",
-      items: ["Jenkins", "GitHub Actions"],
+      items: ["Jenkins", "GitHub Actions", "JFrog Artifactory", "Git", "GitHub"],
     },
     {
-      category: "Testing",
-      items: ["Jest", "Unit Testing", "Integration Testing"],
+      category: "AI & Tooling",
+      items: ["GitHub Copilot", "AI-Driven Debugging", "Refactoring", "Test Generation"],
     },
     {
-      category: "API & Integration",
-      items: ["Rest APIs", "API Integration"],
+      category: "CMS & Platforms",
+      items: ["Adobe Experience Manager (AEM)", "Headless CMS", "Content Fragments"],
     },
   ],
 
   achievements: [
     {
       id: "ach1",
-      title: "CI Performance Optimization",
+      title: "Career Progression",
       description:
-        "Improved CI execution by 65%, reducing pipeline execution time from 1500 seconds to under 500 seconds, accelerating release cycles across teams",
-      year: "2024",
+        "Promoted through three roles – Trainee Engineer → Associate Software Engineer → Software Developer – demonstrating consistent performance growth and technical leadership",
+      year: "2022-Present",
     },
     {
       id: "ach2",
-      title: "Test Coverage Excellence",
+      title: "CI/CD Performance Optimization",
       description:
-        "Achieved 80%+ test coverage within 10 days through Jest optimization and improved testing practices, reducing production defects and improving application stability",
+        "Cut Jest test execution time by 65% (1,500s→<500s), accelerating deployment frequency across 48 production releases",
       year: "2024",
     },
     {
       id: "ach3",
-      title: "Large-Scale UI Migration",
+      title: "AI-Driven Development Efficiency",
       description:
-        "Successfully led Material UI v4 to v5 migration across multiple repositories with zero downtime, improving UI consistency and maintainability",
-      year: "2023",
+        "Integrated GitHub Copilot for test generation and refactoring – 70% time reduction and 400+ test cases generated in a single sprint",
+      year: "2024",
     },
     {
       id: "ach4",
-      title: "CMS to AEM Migration",
+      title: "Zero-Downtime Migrations",
       description:
-        "Contributed to CMS to Adobe Experience Manager migration, improving frontend maintainability and content scalability",
-      year: "2023",
+        "Led Material UI v4→v5 and CMS→AEM migrations across enterprise healthcare portals without business disruption or user impact",
+      year: "2023-2024",
+    },
+    {
+      id: "ach5",
+      title: "Agile Delivery at Scale",
+      description:
+        "Delivered 96 sprints and 48 production releases across two enterprise portals with 10+ components per sprint via Figma-to-code workflows",
+      year: "2022-Present",
+    },
+    {
+      id: "ach6",
+      title: "Quality & Test Coverage Excellence",
+      description:
+        "Maintained 80%+ unit test coverage with full SonarQube Quality Gate compliance, strengthening release confidence",
+      year: "2023-Present",
     },
   ],
 };
