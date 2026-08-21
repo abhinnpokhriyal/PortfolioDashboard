@@ -58,7 +58,7 @@ export default function ResumePreview({ data, highlightKeywords = [] }: Props) {
 
       <Section title="TECHNICAL SKILLS">
         <div style={{ fontSize: "9.5pt", lineHeight: "1.5" }}>
-          {data.skills.map((skill, idx) => (
+          {data.skills.map((skill) => (
             <div key={skill.category} style={{ marginBottom: "2mm" }}>
               <span style={{ fontWeight: "bold", color: "#1a1a1a" }}>
                 {skill.category}:

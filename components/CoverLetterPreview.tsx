@@ -5,6 +5,8 @@ interface Props {
 }
 
 export default function CoverLetterPreview({ content }: Props) {
+  void content;
+
   return (
     <div
       id="cover-letter-preview"

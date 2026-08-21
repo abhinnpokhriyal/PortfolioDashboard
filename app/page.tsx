@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Download, Zap, Building2, TrendingUp, Bot, ChevronDown } from "lucide-react";
 import SocialLinks from "@/components/SocialLinks";

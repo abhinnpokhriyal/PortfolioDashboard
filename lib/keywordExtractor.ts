@@ -35,29 +35,8 @@ const SOFT_SKILL_KEYWORDS = new Set([
   "cross-functional", "stakeholder", "product", "design",
 ]);
 
-function tokenize(text: string): string[] {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s.+#/-]/g, " ")
-    .split(/\s+/)
-    .filter((t) => t.length > 1);
-}
-
-function extractPhrases(text: string): string[] {
-  const lower = text.toLowerCase();
-  const found: string[] = [];
-  TECH_KEYWORDS.forEach((kw) => {
-    if (lower.includes(kw)) found.push(kw);
-  });
-  ROLE_KEYWORDS.forEach((kw) => {
-    if (lower.includes(kw)) found.push(kw);
-  });
-  return [...new Set(found)];
-}
-
 export function extractKeywords(jobDescription: string): JobAnalysis {
   const lower = jobDescription.toLowerCase();
-  const tokens = tokenize(jobDescription);
 
   const techFound: string[] = [];
   const roleFound: string[] = [];
@@ -72,10 +51,6 @@ export function extractKeywords(jobDescription: string): JobAnalysis {
   SOFT_SKILL_KEYWORDS.forEach((kw) => {
     if (lower.includes(kw)) softFound.push(kw);
   });
-
-  const expMatches = lower.match(/(\d+)\+?\s*years?/g) || [];
-
-  const salaryMatches = lower.match(/\d+\s*(?:lpa|lakh|lac)/gi) || [];
 
   const requiredSection = lower.split(/nice.to.have|good.to.have|preferred|bonus/i)[0];
   const niceSection = lower.split(/nice.to.have|good.to.have|preferred|bonus/i)[1] || "";
