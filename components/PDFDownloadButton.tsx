@@ -27,32 +27,40 @@ export default function PDFDownloadButton({
       }
 
       const canvas = await html2canvas(element, {
-        scale: 1.5,
+        scale: 2,
         useCORS: true,
         backgroundColor: "#ffffff",
         logging: false,
         windowWidth: element.scrollWidth,
         windowHeight: element.scrollHeight,
+        imageTimeout: 0,
         onclone: (clonedDoc) => {
-          const allElements = clonedDoc.querySelectorAll('*');
-          allElements.forEach((el) => {
-            const htmlEl = el as HTMLElement;
-            const computedStyle = window.getComputedStyle(el);
-            
-            if (computedStyle.color) {
+          const clonedElement = clonedDoc.getElementById(targetId);
+          if (clonedElement) {
+            // Ensure all styles are applied
+            const allElements = clonedElement.querySelectorAll('*');
+            allElements.forEach((el) => {
+              const htmlEl = el as HTMLElement;
+              const computedStyle = window.getComputedStyle(el);
+              
+              // Copy essential styles
               htmlEl.style.color = computedStyle.color;
-            }
-            if (computedStyle.backgroundColor) {
               htmlEl.style.backgroundColor = computedStyle.backgroundColor;
-            }
-            if (computedStyle.borderColor) {
+              htmlEl.style.fontSize = computedStyle.fontSize;
+              htmlEl.style.fontWeight = computedStyle.fontWeight;
+              htmlEl.style.fontFamily = computedStyle.fontFamily;
+              htmlEl.style.lineHeight = computedStyle.lineHeight;
               htmlEl.style.borderColor = computedStyle.borderColor;
-            }
-          });
+              htmlEl.style.borderWidth = computedStyle.borderWidth;
+              htmlEl.style.borderStyle = computedStyle.borderStyle;
+              htmlEl.style.padding = computedStyle.padding;
+              htmlEl.style.margin = computedStyle.margin;
+            });
+          }
         },
       });
 
-      const imgData = canvas.toDataURL("image/jpeg", 0.85);
+      const imgData = canvas.toDataURL("image/png", 1.0);
 
       const A4_WIDTH_MM = 210;
       const A4_HEIGHT_MM = 297;
@@ -68,22 +76,24 @@ export default function PDFDownloadButton({
       const imgHeightMM = (canvas.height / canvas.width) * A4_WIDTH_MM;
 
       let yOffset = 0;
+      let pageCount = 0;
 
       while (yOffset < imgHeightMM) {
-        if (yOffset > 0) pdf.addPage();
+        if (pageCount > 0) pdf.addPage();
 
         pdf.addImage(
           imgData,
-          "JPEG",
+          "PNG",
           0,
           -yOffset,
           imgWidthMM,
           imgHeightMM,
           undefined,
-          "FAST"
+          "SLOW"
         );
 
         yOffset += A4_HEIGHT_MM;
+        pageCount++;
       }
 
       pdf.save(filename);

@@ -31,7 +31,10 @@ export default function Navbar() {
   }, [handleScroll]);
 
   // Close mobile menu on route change
-  useEffect(() => { setOpen(false); }, [pathname]);
+  useEffect(() => {
+    const timeoutId = setTimeout(() => setOpen(false), 0);
+    return () => clearTimeout(timeoutId);
+  }, [pathname]);
 
   // Trap body scroll when mobile menu open
   useEffect(() => {

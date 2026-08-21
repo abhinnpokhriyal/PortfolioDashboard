@@ -19,9 +19,17 @@ export default function ResumePageClient() {
 
   useEffect(() => {
     const saved = localStorage.getItem("resumeData");
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
+
     if (saved) {
-      try { setData(JSON.parse(saved)); } catch {}
+      timeoutId = setTimeout(() => {
+        try { setData(JSON.parse(saved)); } catch {}
+      }, 0);
     }
+
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
   const handleChange = (updated: ResumeData) => {

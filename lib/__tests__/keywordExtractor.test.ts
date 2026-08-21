@@ -1,5 +1,4 @@
 import { extractKeywords } from '../keywordExtractor';
-import { JobAnalysis } from '@/types/job';
 
 describe('keywordExtractor', () => {
   describe('extractKeywords', () => {
